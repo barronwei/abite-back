@@ -3,8 +3,8 @@ const gql = require('graphql-tag')
 module.exports = gql`
 
   type Query {
-    user(username: String!): User!
-    search(hometown: String!): [Restaurant!]
+    user(username: String!): User! ###
+    search(hometown: String!): [Restaurant!] ###
     drop(hometown: String!): [Hom!]
   }
 

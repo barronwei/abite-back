@@ -4,19 +4,13 @@ const searchResolver = async (obj, args, context) => {
 
   let usersList = await User.query()
 
-  if (substr) {
-    usersList = usersList.filter(el =>
-      el.name.toLowerCase().includes(args.hometown.toLowerCase()),
-    )
-  }
-
-  return usersList
-}
+  return usersList.filter(el =>
+    el.name.toLowerCase().includes(args.hometown.toLowerCase()),
+  )}
 
 const resolver = {
   Query: {
-    search: userResolver,
-    users: usersResolver,
+    search: searchResolver,
   },
 }
 
