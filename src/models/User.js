@@ -16,7 +16,7 @@ class User extends BaseModel {
           from: 'restaurants.id',
           through: {
             from: 'usersrestaurants.restaurantId',
-            to: 'usersrestaurants.userId'
+            to: 'usersrestaurants.userId',
           },
           to: 'posts.userId',
         },
