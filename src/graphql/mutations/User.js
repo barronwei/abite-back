@@ -8,13 +8,7 @@ const createUser = async (obj, { input }) => {
   const registerInput = _.pick(input, [
     'name',
     'email',
-    'birthday',
-    'concentration',
     'hometown',
-    'house',
-    'gender',
-    'bio',
-    'picture',
   ])
 
   const result = await User.query().findOne('email', input.email)

@@ -21,12 +21,10 @@ const addRes = async (obj, { input }, context) => {
     }
   }
 
-
-  //***********//
-  const res = await user.$relatedQuery('resturaunts').insert({ input })
+  const res = await user.$relatedQuery('restuarunts').insert({ input })
 
   if (!res) {
-    throw new Error('Could not add resturaunt')
+    throw new Error('Could not add restuarunt')
   }
 
   return {

@@ -1,4 +1,4 @@
-const User = require('../../../models/Resturaunt')
+const User = require('../../../models/Restuarant')
 
 const searchResolver = async (obj, args, context) => {
 

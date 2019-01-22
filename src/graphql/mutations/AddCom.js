@@ -1,6 +1,7 @@
 const Comment = require('../../models/Comment')
 
 const addRes = async (obj, { input }, context) => {
+  
   if (!context.user) {
     return {
       error: {
@@ -20,7 +21,6 @@ const addRes = async (obj, { input }, context) => {
       },
     }
   }
-
 
   //***********//
   const res = await user.$relatedQuery('resturaunts').insert({ input })
