@@ -6,18 +6,7 @@ casual.define('user', name => ({
   name,
   password: casual.password,
   birthday: casual.date(),
-  concentration: casual.random_element([
-    'CS',
-    'Classics',
-    'Anthro',
-    'Ec',
-    'AppliedMath',
-  ]),
   hometown: casual.city,
-  house: casual.random_element(['Kirkland', 'Pfoho', 'Winthrop', 'Dunster']),
-  gender: casual.random_element(['Male', 'Female', 'Other']),
-  bio: casual.description,
-  picture: 'https://picsum.photos/200?random',
 }))
 
 const names = [

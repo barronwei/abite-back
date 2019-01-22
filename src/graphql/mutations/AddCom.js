@@ -1,6 +1,6 @@
 const Comment = require('../../models/Comment')
 
-const addRes = async (obj, { input }, context) => {
+const addCom = async (obj, { input }, context) => {
   
   if (!context.user) {
     return {
