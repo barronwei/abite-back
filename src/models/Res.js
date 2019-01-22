@@ -1,13 +1,13 @@
 const BaseModel = require('./BaseModel')
 const { HasManyRelation, ManyToManyRelation } = require('objection')
 
-class User extends BaseModel {
+class Res extends BaseModel {
   static get tableName() {
-    return 'users'
+    return 'res'
   }
 
   static get relationMappings() {
-    const Res = require('./Res')
+    const User = require('./User')
     const UserRes = require('./UserRes')
     return {
       posts: {
@@ -43,4 +43,4 @@ class User extends BaseModel {
   }
 }
 
-module.exports = User
+module.exports = Res

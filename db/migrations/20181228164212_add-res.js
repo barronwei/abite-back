@@ -1,5 +1,5 @@
 exports.up = function(knex, Promise) {
-  return knex.schema.createTable('posts', table => {
+  return knex.schema.createTable('res', table => {
     table
       .uuid('id')
       .notNull()
