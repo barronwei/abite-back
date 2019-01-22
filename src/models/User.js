@@ -1,5 +1,5 @@
 const BaseModel = require('./BaseModel')
-const { HasManyRelation, ManyToManyRelation } = require('objection')
+const { ManyToManyRelation } = require('objection')
 
 class User extends BaseModel {
   static get tableName() {
@@ -7,36 +7,18 @@ class User extends BaseModel {
   }
 
   static get relationMappings() {
-    const Res = require('./Res')
-    const UserRes = require('./UserRes')
+    const Restaurant = require('./Restaurant')
     return {
-      posts: {
-        relation: HasManyRelation,
-        modelClass: Post,
-        join: {
-          from: 'users.id',
-          to: 'posts.userId',
-        },
-      },
-      hobbies: {
-        relation: HasManyRelation,
-        modelClass: Hobby,
-        join: {
-          from: 'users.id',
-          to: 'hobbies.userId',
-        },
-      },
-      following: {
-        relation: ManyToManyRelation,
+      users: {
+        relation: ManytoManyRelation,
         modelClass: User,
         join: {
-          from: 'users.id',
+          from: 'restaurants.id',
           through: {
-            // follows is the join table.
-            from: 'follows.followerId',
-            to: 'follows.followingId',
+            from: 'usersrestaurants.restaurantId',
+            to: 'usersrestaurants.userId'
           },
-          to: 'users.id',
+          to: 'posts.userId',
         },
       },
     }

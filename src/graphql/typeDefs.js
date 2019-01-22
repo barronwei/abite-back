@@ -8,35 +8,6 @@ module.exports = gql`
     drop(hometown: String!): [Hom!]
   }
 
-  type Mutation {
-    addRes(input: String!): AddResReturn!
-    remRes(input: ID!): RemResReturn!
-    addHom(input: String!): AddHomReturn!
-    editHom(input: ID!): EditHomReturn!
-    createUser(input: CreateUserInput!): LoginReturn!
-    loginUser(email: String!, password: String!): LoginReturn!
-  }
-
-  type AddResReturn {
-    restaurant: Restaurant
-    error: Error
-  }
-
-  type RemResReturn {
-    success: bool
-    error: Error
-  }
-
-  type AddHomReturn {
-    hom: Hom
-    error: Error
-  }
-
-  type EditHomReturn {
-    hom: Hom
-    error: Error
-  }
-  
   type User {
     id: ID!
     name: String!
@@ -45,21 +16,72 @@ module.exports = gql`
   }
 
   type Restaurant {
+    id: ID!
     name: String!
     lat: float!
     long: float!
-  }
-
-  type userRestaurant {
-    userId: ID!
-    restaurantId: ID!
-    comment: String!
   }
 
   type Hom {
     name: String!
     lat: float!
     long: float!
+  }
+
+  type Mutation {
+    addRes(input: AddResInput): AddResReturn!
+    addHom(input: AddHomInput!): AddHomReturn!
+    remRes(input: RemResInput!): RemResReturn!
+    editHom(input: EditHomInput!): EditHomReturn!
+    createUser(input: CreateUserInput!): LoginReturn!
+    loginUser(email: String!, password: String!): LoginReturn!
+    addCom(input: AddComInput!): AddComReturn!
+  }
+
+  input AddResInput {
+    userId: ID!
+    restaurantId: ID!
+  }
+
+  type AddResReturn {
+    restaurant: Restaurant
+    error: Error
+  }
+
+  input AddHomInput {
+    userId: ID!
+    restaurantID: ID!
+  }
+
+  type AddHomReturn {
+    hom: Hom
+    error: Error
+  }
+
+  input RemResInput {
+    userId: ID!
+    restaurantId: ID!
+  }
+
+  type RemResReturn {
+    success: bool
+    error: Error
+  }
+
+  input EditHomInput {
+    userId: ID!
+    hometown: String!
+  }
+
+  type EditHomReturn {
+    hom: Hom
+    error: Error
+  }
+
+  type userRestaurant {
+    userId: ID!
+    restaurantId: ID!
+    comment: String!
   }
 
   input CreateUserInput {
@@ -77,6 +99,16 @@ module.exports = gql`
     user: User
     token: String
     error: Error
+  }
+
+  input AddComInput {
+    restaurantID: ID!
+    content: String!
+  }
+
+  type AddComReturn {
+    restaurant: String!
+    content: String!
   }
 
   type Error {
