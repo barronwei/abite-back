@@ -103,6 +103,7 @@ module.exports = gql`
 
   input AddComInput {
     restaurantID: ID!
+    userId: ID!
     content: String!
   }
 

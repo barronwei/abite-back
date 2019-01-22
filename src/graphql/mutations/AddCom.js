@@ -11,22 +11,12 @@ const addRes = async (obj, { input }, context) => {
   }
 
   const comment = await Comment.query()
-    .where('id', context.user.id)
     .then(res => res[0])
-
-  if (!user) {
-    return {
-      error: {
-        message: 'Logged in user does not exist',
-      },
-    }
-  }
-
   //***********//
-  const res = await user.$relatedQuery('resturaunts').insert({ input })
+  const res = await comment.insert({ input })
 
   if (!res) {
-    throw new Error('Could not add resturaunt')
+    throw new Error('Could not add comment')
   }
 
   return {
@@ -34,6 +24,6 @@ const addRes = async (obj, { input }, context) => {
   }
 }
 
-const resolver = { Mutation: { addRes } }
+const resolver = { Mutation: { addCom } }
 
 module.exports = resolver
