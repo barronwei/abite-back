@@ -3,7 +3,7 @@ const { HasManyRelation } = require('objection')
 
 class Comment extends BaseModel {
   static get tableName() {
-    return 'restaurants'
+    return 'comments'
   }
 
   static get relationMappings() {
