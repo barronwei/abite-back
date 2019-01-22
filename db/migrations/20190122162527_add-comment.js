@@ -1,12 +1,11 @@
 exports.up = function(knex, Promise) {
-  return knex.schema.createTable('restaurants', table => {
+  return knex.schema.createTable('comments', table => {
     table
       .uuid('id')
       .notNull()
       .primary()
     table.text('userId').notNull()
-    table.text('name').notNull()
-    table.specificType('location', 'POINT')
+    table.text('content').notNull()
     table
       .timestamp('createdAt')
       .defaultTo(knex.fn.now())
@@ -19,5 +18,5 @@ exports.up = function(knex, Promise) {
 }
 
 exports.down = function(knex, Promise) {
-  return knex.schema.dropTable('restaurants')
+  return knex.schema.dropTable('comments')
 }

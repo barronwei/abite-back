@@ -11,7 +11,7 @@ class Restaurant extends BaseModel {
     return {
       restaurants: {
         relation: ManytoManyRelation,
-        modelClass: Restaurant,
+        modelClass: User,
         join: {
           from: 'users.id',
           through: {

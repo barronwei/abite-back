@@ -11,7 +11,7 @@ class Comment extends BaseModel {
     return {
       comments: {
         relation: HasManyRelation,
-        modelClass: Comment,
+        modelClass: Restaurant,
         join: {
           from: 'comments.restaurantId',
           to: 'restaurants.id',
