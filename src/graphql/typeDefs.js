@@ -45,8 +45,9 @@ module.exports = gql`
   }
 
   type Restaurant {
-    id: ID!
-    location: Loc!
+    name: String!
+    lat: float!
+    long: float!
   }
 
   type userRestaurant {
@@ -57,10 +58,6 @@ module.exports = gql`
 
   type Hom {
     name: String!
-    loc: Loc!
-  }
-
-  type Loc {
     lat: float!
     long: float!
   }
