@@ -1,6 +1,6 @@
 const casual = require('casual')
 
-casual.define('post', () => ({
+casual.define('restaurant', () => ({
   id: casual.uuid,
   content: casual.sentences(2),
   name: casual.random_element([
@@ -14,10 +14,10 @@ casual.define('post', () => ({
   ]),
 }))
 
-const posts = []
+const restaurants = []
 
 for (let i = 0; i < 15; i++) {
-  posts.push(casual.post)
+  restaurants.push(casual.post)
 }
 
-module.exports = posts
+module.exports = restaurants

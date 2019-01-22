@@ -5,7 +5,6 @@ casual.define('user', name => ({
   email: casual.email,
   name,
   password: casual.password,
-  birthday: casual.date(),
   hometown: casual.city,
 }))
 
