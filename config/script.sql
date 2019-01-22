@@ -1,3 +1,4 @@
-DROP DATABASE IF EXISTS bootcampproject;
-CREATE DATABASE bootcampproject;
-\connect bootcampproject;
+DROP DATABASE IF EXISTS abiteofhome;
+CREATE DATABASE abiteofhome;
+\connect abiteofhome;
+CREATE EXTENSION POSTGIS;
