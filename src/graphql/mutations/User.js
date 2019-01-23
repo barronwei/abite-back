@@ -5,11 +5,7 @@ const jwt = require('jsonwebtoken')
 const _ = require('lodash')
 
 const createUser = async (obj, { input }) => {
-  const registerInput = _.pick(input, [
-    'name',
-    'email',
-    'hometown',
-  ])
+  const registerInput = _.pick(input, ['name', 'email', 'hometown'])
 
   const result = await User.query().findOne('email', input.email)
 

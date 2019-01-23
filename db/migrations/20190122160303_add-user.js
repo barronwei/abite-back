@@ -5,8 +5,12 @@ exports.up = function(knex, Promise) {
       .notNull()
       .primary()
     table.text('name').notNull()
-    table.text('email').notNull()
+    table
+      .text('email')
+      .unique()
+      .notNull()
     table.text('hometown').notNull()
+    table.text('password').notNull()
     table
       .timestamp('createdAt')
       .defaultTo(knex.fn.now())

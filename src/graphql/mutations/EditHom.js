@@ -21,8 +21,6 @@ const addRes = async (obj, { input }, context) => {
     }
   }
 
-
-  //***********//
   const res = await user.$relatedQuery('hometown').patch({ input })
 
   if (!res) {

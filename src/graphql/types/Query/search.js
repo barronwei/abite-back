@@ -1,12 +1,12 @@
-const User = require('../../../models/Restuarant')
+const User = require('../../../models/Restaurant')
 
 const searchResolver = async (obj, args, context) => {
-
-  let usersList = await User.query()
+  const usersList = await User.query()
 
   return usersList.filter(el =>
     el.name.toLowerCase().includes(args.hometown.toLowerCase()),
-  )}
+  )
+}
 
 const resolver = {
   Query: {
