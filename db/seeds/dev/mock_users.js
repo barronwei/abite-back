@@ -31,16 +31,13 @@ const commentsData = require('../../../data/comments')
 // }
 
 exports.seed = function(knex, Promise) {
-  // Deletes ALL existing entries
-  return knex('users')
+  knex('users')
     .del()
     .then(() => knex('users').insert(usersData))
-    .then(() => {
-      const restaurantsPromises = knex('restaurants').insert(restaurantsData)
-      return Promise.all(restaurantsPromises)
-    })
-    .then(() => {
-      const commentsPromises = knex('comments').insert(commentsData)
-      return Promise.all(commentsPromises)
-    })
+  knex('restaurants')
+    .del()
+    .then(() => knex('restaurants').insert(restaurantsData))
+  knex('comments')
+    .del()
+    .then(() => knex('comments').insert(commentsData))
 }

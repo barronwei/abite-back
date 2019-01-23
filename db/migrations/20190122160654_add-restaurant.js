@@ -4,7 +4,6 @@ exports.up = function(knex, Promise) {
       .uuid('id')
       .notNull()
       .primary()
-    table.text('userId').notNull()
     table.text('name').notNull()
     table.float('lat').notNull()
     table.float('long').notNull()
