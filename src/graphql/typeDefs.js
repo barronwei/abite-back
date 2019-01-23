@@ -17,14 +17,14 @@ module.exports = gql`
   type Restaurant {
     id: ID!
     name: String!
-    lat: float!
-    long: float!
+    lat: Float!
+    long: Float!
   }
 
   type Hom {
     name: String!
-    lat: float!
-    long: float!
+    lat: Float!
+    long: Float!
   }
 
   type Mutation {
@@ -63,7 +63,7 @@ module.exports = gql`
   }
 
   type RemResReturn {
-    success: bool
+    success: Boolean
     error: Error
   }
 
