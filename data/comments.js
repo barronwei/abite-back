@@ -3,7 +3,7 @@ const casual = require('casual')
 casual.define('comment', () => ({
   id: casual.uuid,
   userId: casual.uuid,
-  restaurantId: casual.uuid,
+  restaurantID: casual.uuid,
   content: casual.sentences(2),
 }))
 
