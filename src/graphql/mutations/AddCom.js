@@ -1,7 +1,6 @@
 const Comment = require('../../models/Comment')
 
-const addCom = async (obj, { input }, context) => {
-  
+const addComment = async (obj, { input }, context) => {
   if (!context.user) {
     return {
       error: {
@@ -10,9 +9,7 @@ const addCom = async (obj, { input }, context) => {
     }
   }
 
-  const comment = await Comment.query()
-    .then(res => res[0])
-  //***********//
+  const comment = await Comment.query().then(res => res[0])
   const res = await comment.insert({ input })
 
   if (!res) {
@@ -24,6 +21,9 @@ const addCom = async (obj, { input }, context) => {
   }
 }
 
-const resolver = { Mutation: { addCom } }
+const resolver = { Mutation: { addComment } }
 
 module.exports = resolver
+
+adsfaoisdf
+oij

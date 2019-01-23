@@ -21,12 +21,6 @@ const createUser = async (obj, { input }) => {
 
   const user = await User.query().insertWithRelatedAndFetch(registerInput)
 
-  if (!user) {
-    return {
-      error: { message: 'There was an error registering your information.' },
-    }
-  }
-
   const payload = { id: user.id }
   const token = jwt.sign(payload, config.tokenSecret)
 

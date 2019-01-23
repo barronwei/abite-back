@@ -29,9 +29,7 @@ module.exports = gql`
 
   type Mutation {
     addRes(input: AddResInput): AddResReturn!
-    addHom(input: AddHomInput!): AddHomReturn!
     remRes(input: RemResInput!): RemResReturn!
-    editHom(input: EditHomInput!): EditHomReturn!
     createUser(input: CreateUserInput!): LoginReturn!
     loginUser(email: String!, password: String!): LoginReturn!
     addCom(input: AddComInput!): AddComReturn!
