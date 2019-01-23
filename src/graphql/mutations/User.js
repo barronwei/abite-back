@@ -19,12 +19,6 @@ const createUser = async (obj, { input }) => {
 
   registerInput.password = hash
 
-  if (input.hobbies) {
-    registerInput.hobbies = input.hobbies.map(hobby => ({
-      hobby,
-    }))
-  }
-
   const user = await User.query().insertWithRelatedAndFetch(registerInput)
 
   if (!user) {
