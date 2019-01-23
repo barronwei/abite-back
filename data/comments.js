@@ -1,16 +1,16 @@
 const casual = require('casual')
 
-casual.define('post', () => ({
+casual.define('comment', () => ({
   id: casual.uuid,
   userId: casual.uuid,
-  restId: casual.uuid,
+  restaurantId: casual.uuid,
   content: casual.sentences(2),
 }))
 
-const posts = []
+const comments = []
 
 for (let i = 0; i < 15; i++) {
-  posts.push(casual.post)
+  comments.push(casual.comment)
 }
 
-module.exports = posts
+module.exports = comments
