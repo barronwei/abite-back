@@ -31,13 +31,17 @@ const commentsData = require('../../../data/comments')
 // }
 
 exports.seed = function(knex) {
-  return knex('users')
+  knex('users')
     .del()
-    .then(() => knex('users').insert(usersData))
+    .then(() => { 
+      return knex('users').insert(usersData)
+    })
     .then(() => {
       knex('restaurants')
         .del()
-        .then(() => knex('restaurants').insert(restaurantsData))
+        .then(() => {
+          return knex('restaurants').insert(restaurantsData)
+        })
     })
     .then(() => {
       knex('comments')
