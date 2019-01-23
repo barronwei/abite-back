@@ -10,8 +10,8 @@ const userResolver = async (obj, args, context) => {
 
 const resolver = {
   Query: {
-    user: userResolver
-  }
+    user: userResolver,
+  },
 }
 
 module.exports = resolver
