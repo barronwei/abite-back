@@ -5,6 +5,7 @@ exports.up = function(knex, Promise) {
       .notNull()
       .primary()
     table.text('userId').notNull()
+    table.text('restaurantID').notNull()
     table.text('content').notNull()
     table
       .timestamp('createdAt')

@@ -1,6 +1,6 @@
 const usersData = require('../../../data/users')
 const restaurantsData = require('../../../data/restaurants')
-const commentsData= require('../../../data/users')
+const commentsData = require('../../../data/comments')
 
 // const createPost = (knex, post, name) => {
 //   return knex('users')

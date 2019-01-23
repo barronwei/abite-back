@@ -17,8 +17,8 @@ casual.define('restaurant', () => ({
 
 const restaurants = []
 
-for (let i = 0; i < 15; i++) {
-  restaurants.push(casual.post)
+for (let i = 0; i < 15; i += 1) {
+  restaurants.push(casual.restaurant)
 }
 
 module.exports = restaurants

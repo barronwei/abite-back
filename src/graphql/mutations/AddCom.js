@@ -24,6 +24,3 @@ const addComment = async (obj, { input }, context) => {
 const resolver = { Mutation: { addComment } }
 
 module.exports = resolver
-
-adsfaoisdf
-oij
