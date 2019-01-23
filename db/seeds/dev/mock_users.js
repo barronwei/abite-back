@@ -30,14 +30,20 @@ const commentsData = require('../../../data/comments')
 //     })
 // }
 
-exports.seed = function(knex, Promise) {
-  knex('users')
+exports.seed = function(knex) {
+  return knex('users')
     .del()
     .then(() => knex('users').insert(usersData))
-  knex('restaurants')
-    .del()
-    .then(() => knex('restaurants').insert(restaurantsData))
-  knex('comments')
-    .del()
-    .then(() => knex('comments').insert(commentsData))
+    .then(() => {
+      knex('restaurants')
+        .del()
+        .then(() => knex('restaurants').insert(restaurantsData))
+    })
+    .then(() => {
+      knex('comments')
+        .del()
+        .then(() => {
+          return knex('comments').insert(commentsData)
+        })
+    })
 }
