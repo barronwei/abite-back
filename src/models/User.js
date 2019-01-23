@@ -1,5 +1,5 @@
 const BaseModel = require('./BaseModel')
-const { ManyToManyRelation } = require('objection')
+const { ManytoManyRelation } = require('objection')
 
 class User extends BaseModel {
   static get tableName() {
