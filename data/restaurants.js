@@ -2,16 +2,17 @@ const casual = require('casual')
 
 casual.define('restaurant', () => ({
   id: casual.uuid,
-  content: casual.sentences(2),
   name: casual.random_element([
-    'Bliss',
-    'Jada',
-    'Diego',
-    'Dalton',
-    'Elizabeth',
-    'Kofi',
-    'Spencer',
+    'rest1',
+    'rest2',
+    'rest3',
+    'rest4',
+    'rest5',
+    'rest6',
+    'rest7',
   ]),
+  lat: 1,
+  long: 2,
 }))
 
 const restaurants = []
