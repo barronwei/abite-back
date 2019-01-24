@@ -1,19 +1,23 @@
 const Restaurant = require('../../models/Restaurant')
+const Comment = require('../../models/Comment')
 
-const addRes = async (obj, { input }, context) => {
+const addRes = async (obj, args, context) => {
   const rest = await Restaurant.query()
-    .where('id', context.user.id)
-    .then(res => res[0])
+    .select('id', 'name', 'hometown', 'lat', 'long')
+    .where('id', args.input.restaurantId)
 
-  const res = await Restaurant.$relatedQuery('restuarunts').insert({ input })
-
-  if (!res) {
-    throw new Error('Could not add restuarunt')
+  if (!rest.length) {
+    await Comment.query().insert({
+      userId: 'dab',
+      restaurantId: args.input.restaurantId,
+      content: args.input.content,
+    })
+    await Restaurant.query().insert({
+      restaurantId: args.input.restaurantId,
+      hometown: 'dab',
+    }) // replace dab with context user hometown
   }
-
-  return {
-    res,
-  }
+  return rest[0]
 }
 
 const resolver = { Mutation: { addRes } }

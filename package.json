@@ -35,7 +35,7 @@
   "scripts": {
     "js-lint": "eslint \"src/**/*.js\" \"public/**/*.js\"",
     "lint": "npm run js-lint",
-    "start": "node index.js",
+    "start": "nodemon index.js",
     "reset": "node index.js --force",
     "copy-env": "cp sample.env .env",
     "setup-db": "createdb bootcampproject",
@@ -50,7 +50,7 @@
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-prettier": "^2.6.2",
-    "nodemon": "^1.18.4",
+    "nodemon": "^1.18.9",
     "prettier": "^1.12.1"
   }
 }

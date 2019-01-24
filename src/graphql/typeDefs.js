@@ -3,9 +3,10 @@ const gql = require('graphql-tag')
 module.exports = gql`
   type Query {
     user(email: String!): User! ###
-    userFavorites(id: ID!): [Restaurant!]
+    userFavorites(userId: ID!): [Restaurant!]
     search(hometown: String!): [Restaurant!] ###
     drop(hometown: String!): [Hom!]
+    comments(name: String!): [String!]
   }
 
   type User {
@@ -19,8 +20,8 @@ module.exports = gql`
     id: ID!
     name: String!
     hometown: String!
-    lat: Float!
-    long: Float!
+    lat: Float
+    long: Float
   }
 
   type Hom {
@@ -34,11 +35,12 @@ module.exports = gql`
     remRes(input: RemResInput!): RemResReturn!
     createUser(input: CreateUserInput!): LoginReturn!
     loginUser(email: String!, password: String!): LoginReturn!
-    addCom(input: AddComInput!): AddComReturn!
+    # addCom(input: AddComInput!): AddComReturn!
   }
 
   input AddResInput {
     userId: ID!
+    comment: String!
     restaurantId: ID!
   }
 
@@ -100,16 +102,16 @@ module.exports = gql`
     error: Error
   }
 
-  input AddComInput {
-    restaurantId: ID!
-    userId: ID!
-    content: String!
-  }
+  # input AddComInput {
+  #   restaurantId: ID!
+  #   userId: ID!
+  #   content: String!
+  # }
 
-  type AddComReturn {
-    restaurant: String!
-    content: String!
-  }
+  # type AddComReturn {
+  #   restaurant: String!
+  #   content: String!
+  # }
 
   type Error {
     message: String
