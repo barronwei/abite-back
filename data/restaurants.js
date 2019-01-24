@@ -11,6 +11,7 @@ casual.define('restaurant', () => ({
     'rest6',
     'rest7',
   ]),
+  hometown: casual.random_element(['Brooklyn', 'Big Boy World']),
   lat: 1,
   long: 2,
 }))

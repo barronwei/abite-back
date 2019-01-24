@@ -5,6 +5,7 @@ exports.up = function(knex, Promise) {
       .notNull()
       .primary()
     table.text('name').notNull()
+    table.text('hometown').notNull()
     table.float('lat').notNull()
     table.float('long').notNull()
     table

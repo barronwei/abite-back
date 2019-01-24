@@ -18,6 +18,7 @@ module.exports = gql`
   type Restaurant {
     id: ID!
     name: String!
+    hometown: String!
     lat: Float!
     long: Float!
   }

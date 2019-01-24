@@ -1,6 +1,4 @@
 const User = require('../../../models/User')
-const Comment = require('../../../models/Comment')
-const Restaurant = require('../../../models/Comment')
 
 const userResolver = async (obj, args, context) => {
   // TODO: Write a resolver which returns a user given a user id.
@@ -8,12 +6,6 @@ const userResolver = async (obj, args, context) => {
   const userReturn = await User.query()
     .select('id', 'name', 'email', 'hometown')
     .where('email', args.email)
-
-  // const { id, name, email, hometown } = userReturn
-
-  // const resolve = { id, name, email, hometown }
-
-  console.log(userReturn)
 
   return userReturn[0]
 }
@@ -25,13 +17,10 @@ const favoritesResolver = async (obj, args, context) => {
 
   const holder = await User.query().findById(args.id)
 
-  console.log(holder)
-
   const restaurants = await holder
     .$relatedQuery('usersrestaurants')
     .select('restaurantId')
 
-  console.log(restaurants)
   // const restName = await Restaurant.query().where('id', favReturn.restaurantId)
 
   // const returnType = {
