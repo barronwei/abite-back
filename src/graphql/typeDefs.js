@@ -33,7 +33,7 @@ module.exports = gql`
   type Mutation {
     addRes(input: AddResInput): AddResReturn!
     # remRes(input: RemResInput!): RemResReturn!
-    createUser(input: CreateUserInput!): LoginReturn!
+    createUser(input: CreateUserInput!): CreateReturn!
     loginUser(email: String!, password: String!): LoginReturn!
     # addCom(input: AddComInput!): AddComReturn!
   }
@@ -94,6 +94,12 @@ module.exports = gql`
 
   input SearchInput {
     search: String!
+  }
+
+  type CreateReturn {
+    user: User
+    token: String
+    error: Error
   }
 
   type LoginReturn {

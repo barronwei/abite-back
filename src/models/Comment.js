@@ -9,7 +9,7 @@ class Comment extends BaseModel {
   static get relationMappings() {
     const Restaurant = require('./Restaurant')
     return {
-      comments: {
+      restaurants: {
         relation: HasManyRelation,
         modelClass: Restaurant,
         join: {

@@ -1,5 +1,5 @@
 const BaseModel = require('./BaseModel')
-const { ManytoManyRelation } = require('objection')
+const { ManyToManyRelation } = require('objection')
 
 class Restaurant extends BaseModel {
   static get tableName() {
@@ -9,16 +9,16 @@ class Restaurant extends BaseModel {
   static get relationMappings() {
     const User = require('./User')
     return {
-      restaurants: {
-        relation: ManytoManyRelation,
+      usersrestaurants: {
+        relation: ManyToManyRelation,
         modelClass: User,
         join: {
-          from: 'users.id',
+          from: 'restaurants.id',
           through: {
-            from: 'usersrestaurants.userId',
-            to: 'usersrestaurants.restaurantId',
+            from: 'usersrestaurants.restaurantId',
+            to: 'usersrestaurants.userId',
           },
-          to: 'restaurants.id',
+          to: 'users.id',
         },
       },
     }
