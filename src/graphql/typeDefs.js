@@ -32,7 +32,7 @@ module.exports = gql`
 
   type Mutation {
     addRes(input: AddResInput): AddResReturn!
-    remRes(input: RemResInput!): RemResReturn!
+    # remRes(input: RemResInput!): RemResReturn!
     createUser(input: CreateUserInput!): LoginReturn!
     loginUser(email: String!, password: String!): LoginReturn!
     # addCom(input: AddComInput!): AddComReturn!
@@ -59,15 +59,15 @@ module.exports = gql`
     error: Error
   }
 
-  input RemResInput {
-    userId: ID!
-    restaurantId: ID!
-  }
+  # input RemResInput {
+  #   userId: ID!
+  #   restaurantId: ID!
+  # }
 
-  type RemResReturn {
-    success: Boolean
-    error: Error
-  }
+  # type RemResReturn {
+  #   success: Boolean
+  #   error: Error
+  # }
 
   input EditHomInput {
     userId: ID!
