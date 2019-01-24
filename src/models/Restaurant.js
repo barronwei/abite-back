@@ -18,7 +18,7 @@ class Restaurant extends BaseModel {
             from: 'usersrestaurants.userId',
             to: 'usersrestaurants.restaurantId',
           },
-          to: 'restaurants.userId',
+          to: 'restaurants.id',
         },
       },
     }

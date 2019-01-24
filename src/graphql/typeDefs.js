@@ -3,6 +3,7 @@ const gql = require('graphql-tag')
 module.exports = gql`
   type Query {
     user(email: String!): User! ###
+    userFavorites(email: String!): [Restaurant!]
     search(hometown: String!): [Restaurant!] ###
     drop(hometown: String!): [Hom!]
   }
@@ -47,7 +48,7 @@ module.exports = gql`
 
   input AddHomInput {
     userId: ID!
-    restaurantID: ID!
+    restaurantId: ID!
   }
 
   type AddHomReturn {
@@ -99,7 +100,7 @@ module.exports = gql`
   }
 
   input AddComInput {
-    restaurantID: ID!
+    restaurantId: ID!
     userId: ID!
     content: String!
   }
