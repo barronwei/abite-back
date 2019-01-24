@@ -88,8 +88,8 @@ module.exports = gql`
   input CreateUserInput {
     name: String!
     email: String!
+    hometown: String!
     password: String!
-    hometown: String
   }
 
   input SearchInput {

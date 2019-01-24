@@ -9,6 +9,8 @@ const createUser = async (obj, { input }) => {
 
   const result = await User.query().findOne('email', input.email)
 
+  console.log(registerInput)
+
   if (result) {
     return {
       error: { message: 'Email already exists!' },
