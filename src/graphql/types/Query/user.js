@@ -23,9 +23,15 @@ const favoritesResolver = async (obj, args, context) => {
   //   .select('userId', 'restaurantId', 'content', 'createdAt', 'updatedAt')
   //   .where('userId', args.id)
 
-  const holder = await User.$relatedQuery('restaurants')
-    .select('name')
-    .where('userId', args.id)
+  const holder = await User.query().findById(args.id)
+
+  console.log(holder)
+
+  const restaurants = await holder
+    .$relatedQuery('usersrestaurants')
+    .select('restaurantId')
+
+  console.log(restaurants)
   // const restName = await Restaurant.query().where('id', favReturn.restaurantId)
 
   // const returnType = {
@@ -34,7 +40,7 @@ const favoritesResolver = async (obj, args, context) => {
   //   restName: favReturn.restName[0].name,
   //   conte,
   // }
-  return holder
+  return restaurants
 }
 
 const resolver = {

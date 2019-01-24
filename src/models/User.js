@@ -9,14 +9,14 @@ class User extends BaseModel {
   static get relationMappings() {
     const Restaurant = require('./Restaurant')
     return {
-      users: {
+      usersrestaurants: {
         relation: ManytoManyRelation,
         modelClass: Restaurant,
         join: {
           from: 'restaurants.id',
           through: {
-            from: 'usersrestaurants.restaurantId',
-            to: 'usersrestaurants.userId',
+            from: 'usersrestaurants.userId',
+            to: 'usersrestaurants.restaurantId',
           },
           to: 'restaurants.userId',
         },
