@@ -6,8 +6,8 @@ exports.up = function(knex, Promise) {
       .primary()
     table.text('name').notNull()
     table.text('hometown').notNull()
-    table.float('lat').notNull()
-    table.float('long').notNull()
+    table.float('lat')
+    table.float('long')
     table
       .timestamp('createdAt')
       .defaultTo(knex.fn.now())

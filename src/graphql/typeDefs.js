@@ -26,8 +26,8 @@ module.exports = gql`
 
   type Hom {
     name: String!
-    lat: Float!
-    long: Float!
+    lat: Float
+    long: Float
   }
 
   type Mutation {
@@ -42,6 +42,7 @@ module.exports = gql`
     userId: ID!
     comment: String!
     restaurantId: ID!
+    restaurantName: String!
   }
 
   type AddResReturn {
@@ -90,6 +91,7 @@ module.exports = gql`
     email: String!
     hometown: String!
     password: String!
+    restaurant: String!
   }
 
   input SearchInput {

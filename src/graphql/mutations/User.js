@@ -1,4 +1,5 @@
 const User = require('../../models/User')
+const Restaurant = require('../../models/Restaurant')
 const bcrypt = require('bcrypt')
 const config = require('../../../config')
 const jwt = require('jsonwebtoken')
@@ -6,10 +7,14 @@ const _ = require('lodash')
 
 const createUser = async (obj, { input }) => {
   const registerInput = _.pick(input, ['name', 'email', 'hometown'])
+  const placeholder = _.pick(input, ['restaurant'])
+  const restaurantInput = _.pick(input, ['hometown'])
+  restaurantInput.name = placeholder.restaurant
+  console.log(input.restaurant)
+  console.log(restaurantInput)
+  console.log(registerInput)
 
   const result = await User.query().findOne('email', input.email)
-
-  console.log(registerInput)
 
   if (result) {
     return {
@@ -31,6 +36,16 @@ const createUser = async (obj, { input }) => {
 
   const payload = { id: user.id }
   const token = jwt.sign(payload, config.tokenSecret)
+
+  const rest = await Restaurant.query()
+    .select('id', 'name', 'hometown', 'lat', 'long')
+    .where('name', restaurantInput.name)
+
+  if (!rest.length) {
+    const restaurant = await Restaurant.query().insertWithRelatedAndFetch(
+      restaurantInput,
+    )
+  }
 
   return {
     user,
